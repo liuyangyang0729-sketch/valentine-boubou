@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>💖 Question importante</title>
+  <title>💖 Question très importante</title>
 
   <style>
     body {
@@ -35,10 +35,11 @@
 
   <script>
   function yes() {
-    alert("OUIIIII 💖💖💖");
+    alert("OUIIIII JE T'AIME AUSSI MON BOUBOU 💖💖💖");
   }
 
   const noButton = document.getElementById("no");
+  const yesButton = document.querySelector("button");
 
   const messages = [
     "Non 😢",
@@ -46,19 +47,30 @@
     "Pk… 😭",
     "Stop 😱",
     "STAWWPPP 😵",
-    "INAF! 😳",
-    "Dernière chance 😏"
+    "INAF! 😳"
   ];
 
+ let yesScale = 1;
+
   noButton.addEventListener("mouseenter", () => {
+    // le bouton Non fuit
     const x = Math.random() * (window.innerWidth - 120);
     const y = Math.random() * (window.innerHeight - 120);
     noButton.style.left = x + "px";
     noButton.style.top = y + "px";
 
-    const randomMessage =
+    // texte aléatoire
+    noButton.textContent =
       messages[Math.floor(Math.random() * messages.length)];
-    noButton.textContent = randomMessage;
+
+    // --- croissance contrôlée du bouton Oui ---
+    const rect = yesButton.getBoundingClientRect();
+    const maxWidth = window.innerWidth * 0.9;
+    const maxHeight = window.innerHeight * 0.9;
+
+    if (rect.width < maxWidth && rect.height < maxHeight) {
+      yesScale += 0.15;
+      yesButton.style.transform = `scale(${yesScale})`;
+    }
   });
 </script>
-
