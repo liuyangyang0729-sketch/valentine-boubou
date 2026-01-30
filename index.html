@@ -50,7 +50,8 @@
     "INAF! 😳"
   ];
 
- let yesScale = 1;
+  let yesScale = 1;
+  let maxReached = false;
 
   noButton.addEventListener("mouseenter", () => {
     // le bouton Non fuit
@@ -63,7 +64,7 @@
     noButton.textContent =
       messages[Math.floor(Math.random() * messages.length)];
 
-    // --- croissance contrôlée du bouton Oui ---
+    // limites écran
     const rect = yesButton.getBoundingClientRect();
     const maxWidth = window.innerWidth * 0.9;
     const maxHeight = window.innerHeight * 0.9;
@@ -71,6 +72,10 @@
     if (rect.width < maxWidth && rect.height < maxHeight) {
       yesScale += 0.15;
       yesButton.style.transform = `scale(${yesScale})`;
+    } else if (!maxReached) {
+      // taille max atteinte → MAJUSCULES
+      yesButton.textContent = "OUI 💖";
+      maxReached = true;
     }
   });
 </script>
