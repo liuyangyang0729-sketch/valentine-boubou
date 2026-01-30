@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>💌 Question importante</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ffe6f0;
+      padding-top: 100px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Est-ce que tu veux être ma Valentine ? 💘</h1>
+
+  <button onclick="alert('OUIIIII 💖💖💖')">Oui</button>
+  <button onclick="alert('😢')">Non</button>
+
+</body>
+</html>
