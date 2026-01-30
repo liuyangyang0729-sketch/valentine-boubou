@@ -34,18 +34,30 @@
   <button id="no">Non 😢</button>
 
   <script>
-    function yes() {
-      alert("OUIIIII 💖💖💖");
-    }
+  function yes() {
+    alert("OUIIIII 💖💖💖");
+  }
 
-    const noButton = document.getElementById("no");
+  const noButton = document.getElementById("no");
 
-    noButton.addEventListener("mouseenter", () => {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 100);
-      noButton.style.left = x + "px";
-      noButton.style.top = y + "px";
-    });
-  </script>
-</body>
-</html>
+  const messages = [
+    "Non 😢",
+    "Attends 😳",
+    "Mais… 😭",
+    "Stop 😱",
+    "OK peut-être 😵",
+    "Bon d’accord 😳"
+  ];
+
+  noButton.addEventListener("mouseenter", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+
+    const randomMessage =
+      messages[Math.floor(Math.random() * messages.length)];
+    noButton.textContent = randomMessage;
+  });
+</script>
+
